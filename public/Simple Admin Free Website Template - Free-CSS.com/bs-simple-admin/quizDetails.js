@@ -19,7 +19,7 @@ function validateThenAddDataToFirebase() {
             time: time.value,
             instructions: instructions.value,
             syllabus: subject.value,
-            questionQuan: totalQues.value,
+            questQuantity: totalQues.value,
             passing: passingPer.value
         };
 
@@ -95,15 +95,15 @@ var questionSubmitBtn = document.getElementById('questionSubmitBtn'); // created
         var opt1 = document.getElementById('option1');
         var opt2 = document.getElementById('option2');
         var opt3 = document.getElementById('option3');
-        let questionObj = {
+        let questObj = {
             ques: question.value,
             option1: opt1.value,
             option2: opt2.value,
             option3: opt3.value,
             corrct: correct
         }
-        database.child('quizes'/key).push(questionObj);
-        console.log(questionObj)
+        database.child('quizes/'+key+'/questions/').push(questObj);
+        console.log(questObj)
         question.value = '';
         opt1.value = '';
         opt2.value = '';
