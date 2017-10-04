@@ -5,7 +5,8 @@ var hiddenDiv = document.getElementById('hidden');
 
 database.child('users/').on("child_added", function (snapshot) {
     var obj = snapshot.val();
-      renderUserDetails(obj, snapshot.key);
+    console.log(obj)
+          renderUserDetails(obj, snapshot.key);
   })
 
 function renderUserDetails(obj, key){

@@ -5,11 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
-    <script src="bootstrap/jquery.min.js"></script>
-    <script src="bootstrap/bootstrap.min.js"></script>
-    <script src="js/navbar.js"></script>
-    <link rel="stylesheet" href="stylesheet/quizzes.css">
+    <link rel="stylesheet" href="../lib/boot.css">
+    
+<script src="../Js/navbar.js"></script>
+    <link rel="stylesheet" href="../Css/student.css">
+  
+<script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyAMOScq5hEh484m2ISI4udr2epqmM0t9m4",
+    authDomain: "quiz-application-fiver.firebaseapp.com",
+    databaseURL: "https://quiz-application-fiver.firebaseio.com",
+    projectId: "quiz-application-fiver",
+    storageBucket: "quiz-application-fiver.appspot.com",
+    messagingSenderId: "439055475610"
+  };
+  firebase.initializeApp(config);
+</script>
     <title>Quizzes Panel</title>
 </head>
 
@@ -52,9 +65,13 @@
         </div>
         <div class="col-sm-4"></div>
     </div>
-    <!--Screen division ends-->
 
-    <script src="js/quizzes.js"></script>
+
+    <!--Screen division ends-->
+    <script src="../lib/jquery.js">    </script>
+    
+    <script src="../lib/boot.js">    </script> 
+    <script src="../Js/quizzes.js"></script>
 </body>
 
 </html>
