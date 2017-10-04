@@ -22,9 +22,9 @@ function validateThenAddDataToFirebase() {
             questQuantity: totalQues.value,
             passing: passingPer.value
         };
-
-        database.child('quizes/').push(quizDetails);
+        
         var key = database.child('quizes/').push(quizDetails).key;
+        database.child('quizes/'+key).set(quizDetails);
         quizDetail.innerHTML = '';
         addQuestions(quizDetails, key);
     }
@@ -49,25 +49,25 @@ function addQuestions(quizDetails, key) {
     var countQuestions = 0;
         console.log('sds');
         let addQuees = `
-        <div class="col-lg-4 col-md-4">
+        <div class="col-lg-10 col-md-10">
         <div class="form-group">
             <h3 >Questions: <span id='countQuestions'> 0</span></h3>
             <label>Add Question</label>
-            <input class="form-control" id = 'question'  />
+            <input class="form-control" id = 'question' placeholder='Enter question here !'  />
             <div class="radio">
-            <label><input type="radio" name="optradio" id='a'><input type='text' id= 'option1'></label>
+            <label><input type="radio" name="optradio" id='a'><input type='text' id= 'option1'  placeholder='option1'></label>
           </div>
           <div class="radio">
-            <label><input type="radio" name="optradio" id='b'><input type='text' id= 'option2'></label>
+            <label><input type="radio" name="optradio" id='b'><input type='text' id= 'option2' placeholder='option2'></label>
           </div>
           <div class="radio">
-            <label><input type="radio" name="optradio" checked id = 'c'><input type='text' id= 'option3'></label>
+            <label><input type="radio" name="optradio" checked id = 'c'><input type='text' id= 'option3' placeholder='option3'></label>
           </div>
           <div class="input-group">
-          <button class="btn-success form-control" id='questionSubmitBtn'>Submit</button>
+          <button class="btn-success form-control" id='questionSubmitBtn'>NextQuestion</button>
          </div>
           <div class="input-group">
-          <button class="btn-success form-control" id='finishBtn'>Finish</button>
+          <button class="btn-success form-control" id='finishBtn'>FinishQuiz</button>
           </div>
         </div>
     </div>
