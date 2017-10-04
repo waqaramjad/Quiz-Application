@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+    <script src="bootstrap/jquery.min.js"></script>
+    <script src="bootstrap/bootstrap.min.js"></script>
+    <script src="js/navbar.js"></script>
+    <link rel="stylesheet" href="stylesheet/quizzes.css">
+    <title>Quizzes Panel</title>
+</head>
+
+<body onload="startTime(),setDate(),setUserName()">
+
+    <!-- Navbar starts-->
+    <nav class="navbar navbar-inverse" style="background-color:rgb(128,92,160);border-style:none">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+                <a class="navbar-brand" href="javascript:void(0)"><img src="http://res.cloudinary.com/oi12345/image/upload/v1500414032/logo_jf6nbj.png" alt="Logo" height="30" width="35"></a>
+                <a class="navbar-brand" href="javascript:void(0)" style="font-size:17px;padding-top:17px;color:white">Quiz App</a>
+            </div>
+            <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="javascript:void(0)" id="username" style="color:white"></a></li>
+                    <li><a href="javascript:void(0)" id="logout" style="color:white"></a></li>
+                    <li><a href="javascript:void(0)" id="date" style="color:white"></a></li>
+                    <li><a href="javascript:void(0)" id="time" style="color:white" class="hoverNav"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navbar ends-->
+
+    <!--Screen division starts-->
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div id="wrapperdiv">
+                <h3 id="heading" style="text-decoration:underline">Available Quizzes</h3>
+                <h4 id="none" style="color:#ffffff;"></h4>
+                <div id="maindiv">                    
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+    <!--Screen division ends-->
+
+    <script src="js/quizzes.js"></script>
+</body>
+
+</html>

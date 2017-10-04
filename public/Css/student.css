@@ -1,0 +1,48 @@
+body{
+    background-image: url('http://res.cloudinary.com/oi12345/image/upload/v1500414042/panel_liaxsc.png');
+}
+#maindiv{
+    padding:40px;
+    margin-top:90px;
+    text-align: center;
+    background-color: rgba(255,255,255,0.3);
+    font-family: 'Times New Roman', Times, serif;
+}
+#attempt{
+    border-radius: 3px;
+    border: 1px solid #fff8dc;
+    background-color: transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+    color:#ffffff;
+}
+#check{
+    border-radius: 3px;
+    border: 1px solid #fff8dc;
+    background-color: transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+    color:#ffffff;
+}
+#attempt:hover,#check:hover{
+        background-color: #fff8dc;
+    color: #000000;
+    font-size: 16px;
+}
+#heading{
+    color:rgba(0,0,0,0.8);
+}
+#heading2{
+    color:rgba(0,0,0,0.8);
+}
+td,th{
+    padding: 10px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border: 2px solid #ffffff;
+}
+table{
+    color:#ffffff;
+    margin: 0 auto;
+    border: 2px solid #fff8dc;
+}
