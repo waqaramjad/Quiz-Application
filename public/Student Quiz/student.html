@@ -13,48 +13,60 @@
     <title>Student Panel</title>
 </head>
 <body onload="startTime(),setDate(),setUserName()">
-
-        <!-- Navbar starts-->
-    <nav class="navbar navbar-inverse" style="background-color:rgb(128,92,160);border-style:none">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-                <a class="navbar-brand" href="javascript:void(0)"><img src="http://res.cloudinary.com/oi12345/image/upload/v1500414032/logo_jf6nbj.png" alt="Logo" height="30" width="35"></a>
-                <a class="navbar-brand" href="javascript:void(0)" style="font-size:17px;padding-top:17px;color:white">Quiz App</a>
-            </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="javascript:void(0)" id="username" style="color:white"></a></li>
-                    <li><a href="javascript:void(0)" id="logout"  style="color:white"></a></li>
-                    <li><a href="javascript:void(0)" id="date" style="color:white"></a></li>
-                    <li><a href="javascript:void(0)" id="time" style="color:white" class="hoverNav"></a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-    <!-- Navbar ends-->
-    
-    <!--Screen division starts-->
-          <div class="row">
-            <div class="col-sm-4"></div>
-            <div class="col-sm-4">
-                <div id="maindiv">
-                    <h1 id="heading">Student Panel</h1>
-                        <button onclick="window.location='quizzes.html'" id="attempt">Attempt Quiz</button>
-                        <br><br><br><br><br>
-                        <button onclick="checkRecord()" id="check">Check Your Record</button>
+        
+                <!-- Navbar starts-->
+            <nav class="navbar navbar-inverse" style="background-color:#214761;border-style:none">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>                        
+              </button>
+                        <a class="navbar-brand" href="javascript:void(0)"><img src="http://res.cloudinary.com/oi12345/image/upload/v1500414032/logo_jf6nbj.png" alt="Logo" height="30" width="35"></a>
+                        <a class="navbar-brand" href="javascript:void(0)" style="font-size:17px;padding-top:17px;color:white">Quiz App</a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="myNavbar">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="javascript:void(0)" id="username" style="color:white"></a></li>
+                            <li><a href="javascript:void(0)" id="logout" style="color:white"></a></li>
+                            <li><a href="javascript:void(0)" id="date" style="color:white">Fri Oct 06 2017 </a></li>
+                            <li><a href="javascript:void(0)" id="time" style="color:white" class="hoverNav">7:55:40</a></li>
+                        </ul>
+                    </div>
                 </div>
-            </div>
-            <div class="col-sm-4"></div>
-        </div>
-    <!--Screen division ends-->
-
-
-</body>
+            </nav>
+            <!-- Navbar ends-->
+            
+            <!--Screen division starts-->
+                  <div class="row">
+                    <div class="col-sm-4"></div>
+                    <div class="col-sm-4">
+                        <div id="maindiv">
+                            <h1 id="heading">Student Panel</h1>
+                                <button onclick="window.location='quizzes.html'" id="attempt" style="
+            background-color: white;
+            /* color: white; */
+            color: black;
+        ">Attempt Quiz</button>
+                                <br><br><br><br><br>
+                                <button onclick="checkRecord()" id="check" style="
+            background-color: white;
+            /* color: white; */
+            color: black;
+        ">Check Your Record</button>
+                        </div>
+                    </div>
+                    <div class="col-sm-4"></div>
+                </div>
+            <!--Screen division ends-->
+        
+        
+        
+        <script src="../lib/jquery.js">    </script>
+        
+        <script src="../lib/boot.js">    </script> 
+        </body>
 <script src="../lib/jquery.js">    </script>
 
 <script src="../lib/boot.js">    </script> 

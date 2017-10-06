@@ -3,6 +3,10 @@ var database = firebase.database().ref("/");
 database.child('quizes/').on("child_added", function (snapshot) {
     var obj = snapshot.val();
           console.log(obj)
+          console.log(  JSON.stringify(obj))
+          
+         var a= JSON.stringify(obj);
+          localStorage.setItem('quizzes',a);
           
   })
  
