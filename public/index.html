@@ -17,18 +17,37 @@
 
 >>>>>>> 9c57e9a9f8d71298bc6531a3b7b5e69eb956df99
 </head>
-<body>
+<body>*
+
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- firebase  -->
+    <script src="https://www.gstatic.com/firebasejs/4.4.0/firebase.js"></script> 
+<script src="Js/firebase.js"></script>
+
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="style.css">
+=======
+<link rel="stylesheet" href="lib/boot.css">
+
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; 9c57e9a9f8d71298bc6531a3b7b5e69eb956df99
+
+
 
     <!-- LOGIN FORM  -->
     <div class="container">    
-            <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
-                <div class="panel panel-info" >
+            <div id="loginbox" style="margin-top: 50px; display: none;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+                <div class="panel panel-info">
                         <div class="panel-heading" id="panelHeading">
                             <div class="panel-title">Sign In</div>
                             <div style="float:right; font-size: 80%; position: relative; top:-10px"><a href="#" id="password">Forgot password?</a></div>
                         </div>     
     
-                        <div style="padding-top:30px" class="panel-body" >
+                        <div style="padding-top:30px" class="panel-body">
     
                             <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                                 
@@ -59,7 +78,7 @@
                                         <!-- Button -->
     
                                         <div class="col-sm-12 controls">
-    <input  type="submit" class="btn btn-success" name="remember" value="Login" id="loginBtn"> 
+    <input type="submit" class="btn btn-success" name="remember" value="Login" id="loginBtn"> 
                                                 
                 <!-- <a id="btn-login" href="#" class="btn btn-success">Login  </a> -->
                                           <a id="btn-fblogin" href="#" class="btn btn-primary">Login with Facebook</a>
@@ -70,9 +89,9 @@
     
                                     <div class="form-group">
                                         <div class="col-md-12 control">
-                                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%" >
+                                            <div style="border-top: 1px solid#888; padding-top:15px; font-size:85%">
                                                 Don't have an account! 
-                                            <a href="#" id="signUp" onClick="$('#loginbox').hide(); $('#signupbox').show()">
+                                            <a href="#" id="signUp" onclick="$('#loginbox').hide(); $('#signupbox').show()">
                                                 Sign Up Here
                                             </a>
                                             </div>
@@ -85,13 +104,15 @@
                             </div>                     
                         </div>  
             </div>
-            <div id="signupbox" style="display:none; margin-top:50px" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+            <div id="signupbox" style="margin-top: 50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
                         <div class="panel panel-info">
-                            <div class="panel-heading">
-                                <div class="panel-title">Sign Up</div>
-                                <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
+                            <div class="panel-heading" style="    background-color: #a58059;">
+                                <div class="panel-title" style="
+    color: white;
+">Sign Up</div>
+                                <div style=" color:white; float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="#" style="    color: white;" onclick="$('#signupbox').hide(); $('#loginbox').show()">Sign In</a></div>
                             </div>  
-                            <div class="panel-body" >
+                            <div class="panel-body">
                                 <form id="signupform" class="form-horizontal" role="form">
                                     
                                     <div id="signupalert" style="display:none" class="alert alert-danger">
@@ -131,12 +152,12 @@
                                     <div class="form-group">
                                         <!-- Button -->                                        
                                         <div class="col-md-offset-3 col-md-9">
-                                            <button  type="button"  class="btn btn-info" onclick="submit1()" >&nbsp Sign Up</button>
+                                            <button type="button" class="btn btn-info" onclick="submit1()">&nbsp; Sign Up</button>
                                             <span style="margin-left:8px;">or</span>  
                                         </div>
                                     </div>
                                     
-                                    <div style="border-top: 1px solid #999; padding-top:20px"  class="form-group">
+                                    <div style="border-top: 1px solid #999; padding-top:20px" class="form-group">
                                         
                                         <div class="col-md-offset-3 col-md-9">
                                             <button id="btn-fbsignup" type="button" class="btn btn-primary"><i class="icon-facebook"></i>   Sign Up with Facebook</button>
@@ -156,6 +177,13 @@
              </div> 
         </div>
         
+
+
+
+ <script src="lib/jquery.js">    </script>
+
+<script src="lib/boot.js">    </script> 
+<script src="Js/SignUp&amp;SigIn.js"></script>
 
 </body>
 
