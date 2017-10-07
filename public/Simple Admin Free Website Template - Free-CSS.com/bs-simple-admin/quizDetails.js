@@ -132,7 +132,8 @@ questionSubmitBtn.onclick = function () {
 
     var finishBtn = document.getElementById('finishBtn');
     finishBtn.onclick = function () {
-        quizDetailsArray.push(questionArray)
+        quizDetailsArray[0].questions = questionArray;
+        // quizDetailsArray.push(questionArray)
         database.child('quizes/').push(quizDetailsArray);
         if(question.value === '' || opt1.value === '' || opt2.value === '' || opt3.value === ''){}
         location = 'ui.html'
