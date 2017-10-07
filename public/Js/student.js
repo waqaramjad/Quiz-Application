@@ -1,3 +1,15 @@
+var database = firebase.database().ref("/");
+
+database.child('users/').on("child_added", function (snapshot) {
+    var obj = snapshot.val();
+          console.log(obj)
+        //   console.log(  JSON.stringify(obj))
+          
+        //  var a= JSON.stringify(obj);
+        //   localStorage.setItem('quizzes',a);
+          
+  })
+
 function checkRecord(){
 
     var userLogin=localStorage.getItem('userLogin');

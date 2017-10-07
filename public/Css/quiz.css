@@ -1,0 +1,65 @@
+body{
+    background-image: url("../photo_bg.jpg");
+    
+    /* background-image: url('http://res.cloudinary.com/oi12345/image/upload/v1500414047/quiz_hm85v9.jpg'); */
+}
+#nextdiv{
+    color: #ffffff;
+    font-family: 'Times New Roman', Times, serif;
+}
+#quizdiv{
+    color: #ffffff;
+    padding:20px;
+    font-family: 'Times New Roman', Times, serif;
+background-color: rgba(255,255,255,0.2);
+}
+#startButton{
+    border-radius: 3px;
+    border: 1px solid #fff8dc;
+    background-color: transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+    color:#ffffff;
+}
+#startButton:hover{
+     background-color: #fff8dc;
+    color: #000000;
+    font-size: 16px;
+}
+#question{
+    color:#fff8dc;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #fff8dc;
+    padding:10px;
+    text-align: center;
+    border-radius: 35px 5px;
+    font-size: 13px;
+}
+.options{
+    margin-left: 12px;
+    font-weight: normal;
+    color:  #fff8dc;
+}
+#submit{
+    border-radius: 3px;
+    border: 1px solid #fff8dc;
+    background-color: transparent;
+    padding-left: 20px;
+    padding-right: 20px;
+    color:#ffffff;
+}
+#submit:hover{
+        background-color: #fff8dc;
+    color: #000000;
+    font-size: 16px;
+}
+#back{
+    color:#ffffff;
+    background-color: #000000;
+    border-radius: 5px;
+    border:none;
+    padding:5px;
+    padding-left:15px;
+    padding-right:15px;
+}

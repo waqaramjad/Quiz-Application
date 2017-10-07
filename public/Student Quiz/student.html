@@ -5,11 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" href="../lib/boot.css">
-        
-    <script src="../Js/navbar.js"></script>
-    <link rel="stylesheet" href="../Css/student.css">
-    <script src="../Js/student.js"></script>
+        <link rel="stylesheet" href="../Css/student.css">    
+   
     
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAMOScq5hEh484m2ISI4udr2epqmM0t9m4",
+        authDomain: "quiz-application-fiver.firebaseapp.com",
+        databaseURL: "https://quiz-application-fiver.firebaseio.com",
+        projectId: "quiz-application-fiver",
+        storageBucket: "quiz-application-fiver.appspot.com",
+        messagingSenderId: "439055475610"
+      };
+      firebase.initializeApp(config);
+    </script>
     <title>Student Panel</title>
 </head>
 <body onload="startTime(),setDate(),setUserName()">
@@ -70,4 +81,7 @@
 <script src="../lib/jquery.js">    </script>
 
 <script src="../lib/boot.js">    </script> 
+<script src="../Js/navbar.js"></script>
+
+<script src="../Js/student.js"></script>
 </html>
