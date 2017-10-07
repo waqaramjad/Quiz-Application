@@ -8,8 +8,8 @@ var quiz = document.getElementById('quiz');
 var quizDetail = document.getElementById('quizDetails');
 var database = firebase.database().ref('/');
 var quizQuestions = document.getElementById('quizQuestions');
-
-
+var questionArray = [];
+var quizDetailsArray = [];
 //if validated then add to firebase
 function validateThenAddDataToFirebase() {
     if (validate()) {
@@ -23,10 +23,11 @@ function validateThenAddDataToFirebase() {
             passing: passingPer.value
         };
         
-        var key = database.child('quizes/').push(quizDetails).key;
-        database.child('quizes/'+key).set(quizDetails);
+        //var key = database.child('quizes/').push(quizDetails).key;
+        //database.child('quizes/'+key).set(quizDetails);
+        quizDetailsArray.push(quizDetails);
         quizDetail.innerHTML = '';
-        addQuestions(quizDetails, key);
+        addQuestions(quizDetails);
     }
 }
 
@@ -45,9 +46,8 @@ function validate() {
 
 
 // Now add questions to the quiz
-function addQuestions(quizDetails, key) {
+function addQuestions(quizDetails) {
     var countQuestions = 0;
-        console.log('sds');
         let addQuees = `
         <div class="col-lg-10 col-md-10">
         <div class="form-group">
@@ -76,42 +76,65 @@ function addQuestions(quizDetails, key) {
 
 var countQuestionsSpan = document.getElementById('countQuestions');
 var questionSubmitBtn = document.getElementById('questionSubmitBtn'); // created after
-    questionSubmitBtn.onclick = function () {
+    
+questionSubmitBtn.onclick = function () {
+    var question = document.getElementById('question')
+    var opt1 = document.getElementById('option1');
+    var opt2 = document.getElementById('option2');
+    var opt3 = document.getElementById('option3');
+
+    if(question.value === '' || opt1.value === '' || opt2.value === '' || opt3.value === ''){
+        alert('Fill all the fields.');
+    }
+    else{
         countQuestions++;
         countQuestionsSpan.innerHTML = countQuestions;
-        let correct = 'option1';
-        var radio1 = document.getElementById('a')
-        var radio2 = document.getElementById('b')
-        var radio3 = document.getElementById('c')
-
-        if (radio2.checked) {
-            correct = 'option2'
+        let option1Bool = false;
+        let option2Bool = false;
+        let option3Bool = false;
+        let radio1 = document.getElementById('a')
+        let radio2 = document.getElementById('b')
+        let radio3 = document.getElementById('c')
+        if (radio1.checked) {
+            option1Bool = true;
+        }
+        else if (radio2.checked) {
+            option2Bool = true;
         }
         else if (radio3.checked) {
-            correct = 'option3'
+            option2Bool = true;        
         }
-
-        var question = document.getElementById('question')
-        var opt1 = document.getElementById('option1');
-        var opt2 = document.getElementById('option2');
-        var opt3 = document.getElementById('option3');
         let questObj = {
-            ques: question.value,
-            option1: opt1.value,
-            option2: opt2.value,
-            option3: opt3.value,
-            corrct: correct
+            question : question.value,
+            options: [
+                {
+                    option1 : opt1.value,
+                    correct: option1Bool
+                },
+                {
+                    option2 : opt2.value,
+                    correct: option2Bool
+                },
+                {
+                    option3 : opt3.value,
+                    correct: option3Bool
+                }
+            ]
         }
-        database.child('quizes/'+key+'/questions/').push(questObj);
-        console.log(questObj)
+        questionArray.push(questObj);
+        //database.child('quizes/'+key+'/questions/').push(questObj);
         question.value = '';
         opt1.value = '';
         opt2.value = '';
         opt3.value = '';
     }
+}
 
     var finishBtn = document.getElementById('finishBtn');
     finishBtn.onclick = function () {
+        quizDetailsArray.push(questionArray)
+        database.child('quizes/').push(quizDetailsArray);
+        if(question.value === '' || opt1.value === '' || opt2.value === '' || opt3.value === ''){}
         location = 'ui.html'
 
     }

@@ -1,5 +1,5 @@
 body{
-    background-image: url('http://res.cloudinary.com/oi12345/image/upload/v1500414042/panel_liaxsc.png');
+    background-image: url("../photo_bg.jpg");
 }
 #maindiv{
     padding:40px;

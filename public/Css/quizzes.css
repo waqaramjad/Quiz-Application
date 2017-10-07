@@ -1,0 +1,22 @@
+body{
+    background-image: url("../photo_bg.jpg");
+}
+#wrapperdiv{
+    padding:40px;
+    background-color: rgba(255,255,255,0.3);
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+#heading{
+    color:#ffffff;
+}
+.links{
+    color: #ffffff;
+    text-decoration: underline;
+    font-size: 17px;
+    
+}
+.links:hover{
+    color: #ffffff;
+    text-decoration: none;
+}

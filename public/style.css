@@ -1,0 +1,31 @@
+body{
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    background-image: url('photo_bg.jpg');
+    background-repeat:no-repeat;
+    background-position: center center;
+}
+
+#panelHeading{
+    border-color: white; 
+    background-color: #a58059;
+    color: white;
+}
+#password{
+    color: #e7e8cd;
+}
+#signUp{
+    text-decoration: underline;
+    color: #726457;
+}
+#loginBtn{
+    border-color: white; 
+    background-color: #a58059;
+    color: white;
+}
