@@ -175,3 +175,24 @@ min-height: 80px;
     margin-top: 15px;
     float: right;
 }
+
+#question{
+    display: inline;
+    width: 50%; 
+}
+#fileButton{
+    width: 25%;
+    display: inline;
+}
+#uploader{
+    visibility: hidden;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20%;
+}
+
+@-webkit-keyframes move {
+	0% {background-position: 0px 0px, 0 0, 0 0}
+	100% {background-position: -100px 0px, 0 0, 0 0}
+}
+
