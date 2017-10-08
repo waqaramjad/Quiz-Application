@@ -31,8 +31,12 @@ else if(quizNames.length>0){
     var click;
     for(var i=0;i<quizNames.length;i++){
         var parent=document.getElementById('maindiv');
+        // var chuildUL=document.getElementById('listitem');
         var breakline=document.createElement('br');        
+        // var list=document.createElement('li');
+        // list.setAttribute('class','list-group-item')
         var anker=document.createElement('a');
+        anker.setAttribute('class','list-group-item')
         identity=identity+(i+1);
         click="startQuiz('"+identity+"')";
         anker.setAttribute('id',identity);
@@ -41,6 +45,8 @@ else if(quizNames.length>0){
         anker.setAttribute('onclick',click);
         var ankerTxt=document.createTextNode(quizNames[i]);
         anker.appendChild(ankerTxt);
+        // list.appendChild(anker)
+        // chuildUL.appendChild(list)
         parent.appendChild(breakline);
         parent.appendChild(anker);
     }

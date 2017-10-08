@@ -37,41 +37,51 @@
 <body onload="startTime(),setDate(),setUserName(),overview()">
 
     <!-- Navbar starts-->
-    <nav class="navbar navbar-inverse" style="background-color:rgb(128,92,160);border-style:none">
-        <div class="container-fluid">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <span class="icon-bar"></span>                        
-    </button>
-              <a class="navbar-brand" href="javascript:void(0)"><img src="http://res.cloudinary.com/oi12345/image/upload/v1500414032/logo_jf6nbj.png" alt="Logo" height="30" width="35"></a>
-              <a class="navbar-brand" href="javascript:void(0)" style="font-size:17px;padding-top:17px;color:white">Quiz App</a>
-            <button class="btn-default" style="
-              float: right;
-              margin-top: 2%;
-          " onclick="window.location='quizzes.html'">Start Quiz</button>
-                <a class="navbar-brand" href="javascript:void(0)" style="font-size:17px;padding-top:17px;color:white">Quiz App</a>
+    <nav class="navbar navbar-inverse" style="background-color:#214761;border-style:none">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar" aria-expanded="true">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>                        
+          </button>
+                    <a class="navbar-brand" href="javascript:void(0)"><img src="http://res.cloudinary.com/oi12345/image/upload/v1500414032/logo_jf6nbj.png" alt="Logo" height="30" width="35"></a>
+                    <a class="navbar-brand" href="javascript:void(0)" style="font-size:17px;padding-top:17px;color:white">Quiz App</a>
+                    <span class="icon-bar"></span>                        
+                
+                          <a class="navbar-brand" href="javascript:void(0)"></a>
+                          
+                       
+                </div>
+                <div class="navbar-collapse collapse in" id="myNavbar" aria-expanded="true" style="">
+                    <ul class="nav navbar-nav navbar-right">
+                            <!-- <button class="btn-default" style="
+                            float: right;
+                            margin-top: 2%;
+                        " onclick="window.location='quizzes.html'">Start Quiz</button> -->
+                        <!-- <li> <button class="btn-default" style="
+                            float: right;
+                            margin-top: 2%;
+                        " onclick="window.location='quizzes.html'">Start Quiz</button></li> -->
+                       <li><a href="javascript:void(0)" id="" style="background-color: white;color: black;/* color:white; */font-size: 18px;" onclick="window.location='quizzes.html'">Start Quiz</a></li> 
+                        <li><a href="javascript:void(0)" id="username" style="color:white" onclick="window.location='teacher.html'">Hello alo</a></li>
+                        <li><a href="javascript:void(0)" id="logout" style="color:white" onclick="window.location='index.html';localStorage.removeItem('userLogin')">Logout</a></li>
+                        <li><a href="javascript:void(0)" id="date" style="color:white">Sun Oct 08 2017 </a></li>
+                        <li><a href="javascript:void(0)" id="time" style="color:white" class="hoverNav">1:09:27</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="collapse navbar-collapse" id="myNavbar">
-                <ul class="nav navbar-nav navbar-right">
-                    <li><a href="javascript:void(0)" id="username" style="color:white"></a></li>
-                    <li><a href="javascript:void(0)" id="logout" style="color:white"></a></li>
-                    <li><a href="javascript:void(0)" id="date" style="color:white"></a></li>
-                    <li><a href="javascript:void(0)" id="time" style="color:white" class="hoverNav"></a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+        </nav>
+    
     <!-- Navbar ends-->
 
     <!--Screen division starts-->
     <div class="row">
         <div class="col-sm-9">
             <div id="maindiv">
-                <div id="quizdiv">
+                <div id="quizdiv" style="
+                font-size: large;
+            ">
                 </div>
             </div>
         </div>

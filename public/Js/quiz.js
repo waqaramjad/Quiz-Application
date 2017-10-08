@@ -59,6 +59,8 @@ function overview(){
     passElement.appendChild(passTxt);
 
     var stQuizElement = document.createElement('button');
+    stQuizElement.style.backgroundColor = 'white'
+    stQuizElement.style.color = 'black'
     stQuizElement.setAttribute('id','startButton');
     var stQuizTxt = document.createTextNode('Start Quiz');
     stQuizElement.setAttribute('onclick','start()');
