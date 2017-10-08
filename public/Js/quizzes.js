@@ -77,6 +77,5 @@ else{
     alert('You already attempted this quiz before,quiz cant be attempted more than once!');
     var ele=document.getElementById(param);
     ele.style.color="white";
-
 }
 }
