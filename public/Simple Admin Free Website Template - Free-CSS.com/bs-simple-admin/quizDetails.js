@@ -8,7 +8,9 @@ var quiz = document.getElementById('quiz');
 var quizDetail = document.getElementById('quizDetails');
 var database = firebase.database().ref('/');
 var quizQuestions = document.getElementById('quizQuestions');
-var questionArray = [];
+// uploader and file button
+
+var questionArray = []; 
 var quizDetailsArray = [];
 //if validated then add to firebase
 function validateThenAddDataToFirebase() {
@@ -47,13 +49,19 @@ function validate() {
 
 // Now add questions to the quiz
 function addQuestions(quizDetails) {
+    var filePath ;
     var countQuestions = 0;
         let addQuees = `
-        <div class="col-lg-10 col-md-10">
+        <div class="col-lg-12 col-md-12">
         <div class="form-group">
             <h3 >Questions: <span id='countQuestions'> 0</span></h3>
             <label>Add Question</label>
-            <input class="form-control" id = 'question' placeholder='Enter question here !'  />
+            <br>
+            <input class="form-control" id = 'question' placeholder='Enter question here !'/>
+            <span>  
+            <input type="file" value="upload"  id='fileButton'>
+            <progress value="0" max="100" id='uploader'>0%</progress>
+            </span>             
             <div class="radio">
             <label><input type="radio" name="optradio" id='a'><input type='text' id= 'option1'  placeholder='option1'></label>
           </div>
@@ -76,13 +84,46 @@ function addQuestions(quizDetails) {
 
 var countQuestionsSpan = document.getElementById('countQuestions');
 var questionSubmitBtn = document.getElementById('questionSubmitBtn'); // created after
-    
-questionSubmitBtn.onclick = function () {
-    var question = document.getElementById('question')
-    var opt1 = document.getElementById('option1');
-    var opt2 = document.getElementById('option2');
-    var opt3 = document.getElementById('option3');
+var fileButton = document.getElementById('fileButton');
+var uploader = document.getElementById('uploader');
+//  Listener for file selection
+fileButton.addEventListener('change', function(e){
+    // get file
+    uploader.style.visibility = 'visible';
+    var file = e.target.files[0];
+    //create a storage ref
+        console.log('work')
 
+        var storageRef = firebase.storage().ref('Questions/'+ file.name);
+        //upload file
+        filePath = 'Questions/'+ file.name;
+        var task = storageRef.put(file);
+        //update progress bar
+        task.on('state_changed',
+        function progress(snapshot) {
+            var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+            uploader.value = percentage;
+        },
+        function error(err) {
+            alert(err);
+        },
+        function complete(params) {
+            
+        }
+    )
+    
+})
+
+var question = document.getElementById('question')
+var opt1 = document.getElementById('option1');
+var opt2 = document.getElementById('option2');
+var opt3 = document.getElementById('option3');
+let radio1 = document.getElementById('a')
+let radio2 = document.getElementById('b')
+let radio3 = document.getElementById('c')
+// submit Button event listener
+questionSubmitBtn.onclick = function () {
+    
     if(question.value === '' || opt1.value === '' || opt2.value === '' || opt3.value === ''){
         alert('Fill all the fields.');
     }
@@ -92,9 +133,6 @@ questionSubmitBtn.onclick = function () {
         let option1Bool = false;
         let option2Bool = false;
         let option3Bool = false;
-        let radio1 = document.getElementById('a')
-        let radio2 = document.getElementById('b')
-        let radio3 = document.getElementById('c')
         if (radio1.checked) {
             option1Bool = true;
         }
@@ -104,6 +142,7 @@ questionSubmitBtn.onclick = function () {
         else if (radio3.checked) {
             option2Bool = true;        
         }
+        // question object created
         let questObj = {
             question : question.value,
             options: [
@@ -121,6 +160,10 @@ questionSubmitBtn.onclick = function () {
                 }
             ]
         }
+        if (filePath) {
+         questObj.filePathInStorage = filePath;   
+        }
+
         questionArray.push(questObj);
         //database.child('quizes/'+key+'/questions/').push(questObj);
         question.value = '';
@@ -132,10 +175,50 @@ questionSubmitBtn.onclick = function () {
 
     var finishBtn = document.getElementById('finishBtn');
     finishBtn.onclick = function () {
-        quizDetailsArray.push(questionArray)
+        if(question.value === '' || opt1.value === '' || opt2.value === '' || opt3.value === ''){
+         alert("fill all the fields")
+        }
+        else{
+            let option1Bool = false;
+            let option2Bool = false;
+            let option3Bool = false;
+            if (radio1.checked) {
+                option1Bool = true;
+            }
+            else if (radio2.checked) {
+                option2Bool = true;
+            }
+            else if (radio3.checked) {
+                option2Bool = true;        
+            }
+            // question object created
+            let questObj = {
+                question : question.value,
+                options: [
+                    {
+                        option1 : opt1.value,
+                        correct: option1Bool
+                    },
+                    {
+                        option2 : opt2.value,
+                        correct: option2Bool
+                    },
+                    {
+                        option3 : opt3.value,
+                        correct: option3Bool
+                    }
+                ]
+            }
+            if (filePath) {
+             questObj.filePathInStorage = filePath;   
+            }
+    
+            questionArray.push(questObj);
+        }
+        quizDetailsArray[0].questions = questionArray;
         database.child('quizes/').push(quizDetailsArray);
-        if(question.value === '' || opt1.value === '' || opt2.value === '' || opt3.value === ''){}
-        location = 'ui.html'
+        location = 'ui.html';
+        
 
     }
 }
