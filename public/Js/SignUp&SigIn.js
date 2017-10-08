@@ -25,7 +25,7 @@ document.getElementById('loginform')
                     .once('value', function (snapshot) {
                         var convert = JSON.stringify(snapshot.val())
                         localStorage.setItem('loggedInUser', convert)
-                        location = 'Quiz/Quiz.html'
+                        location = 'Student Quiz/student.html'
                         console.log(convert)
                     })
             })
