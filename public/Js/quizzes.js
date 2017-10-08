@@ -31,6 +31,7 @@ else if(quizNames.length>0){
     var click;
     for(var i=0;i<quizNames.length;i++){
         var parent=document.getElementById('maindiv');
+        parent.setAttribute('maindiv','list-group')
         // var chuildUL=document.getElementById('listitem');
         var breakline=document.createElement('br');        
         // var list=document.createElement('li');
