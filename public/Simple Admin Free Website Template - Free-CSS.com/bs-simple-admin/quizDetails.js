@@ -114,13 +114,16 @@ fileButton.addEventListener('change', function(e){
     
 })
 
+var question = document.getElementById('question')
+var opt1 = document.getElementById('option1');
+var opt2 = document.getElementById('option2');
+var opt3 = document.getElementById('option3');
+let radio1 = document.getElementById('a')
+let radio2 = document.getElementById('b')
+let radio3 = document.getElementById('c')
 // submit Button event listener
 questionSubmitBtn.onclick = function () {
-    var question = document.getElementById('question')
-    var opt1 = document.getElementById('option1');
-    var opt2 = document.getElementById('option2');
-    var opt3 = document.getElementById('option3');
-
+    
     if(question.value === '' || opt1.value === '' || opt2.value === '' || opt3.value === ''){
         alert('Fill all the fields.');
     }
@@ -130,9 +133,6 @@ questionSubmitBtn.onclick = function () {
         let option1Bool = false;
         let option2Bool = false;
         let option3Bool = false;
-        let radio1 = document.getElementById('a')
-        let radio2 = document.getElementById('b')
-        let radio3 = document.getElementById('c')
         if (radio1.checked) {
             option1Bool = true;
         }
@@ -175,11 +175,50 @@ questionSubmitBtn.onclick = function () {
 
     var finishBtn = document.getElementById('finishBtn');
     finishBtn.onclick = function () {
+        if(question.value === '' || opt1.value === '' || opt2.value === '' || opt3.value === ''){
+         alert("fill all the fields")
+        }
+        else{
+            let option1Bool = false;
+            let option2Bool = false;
+            let option3Bool = false;
+            if (radio1.checked) {
+                option1Bool = true;
+            }
+            else if (radio2.checked) {
+                option2Bool = true;
+            }
+            else if (radio3.checked) {
+                option2Bool = true;        
+            }
+            // question object created
+            let questObj = {
+                question : question.value,
+                options: [
+                    {
+                        option1 : opt1.value,
+                        correct: option1Bool
+                    },
+                    {
+                        option2 : opt2.value,
+                        correct: option2Bool
+                    },
+                    {
+                        option3 : opt3.value,
+                        correct: option3Bool
+                    }
+                ]
+            }
+            if (filePath) {
+             questObj.filePathInStorage = filePath;   
+            }
+    
+            questionArray.push(questObj);
+        }
         quizDetailsArray[0].questions = questionArray;
-        // quizDetailsArray.push(questionArray)
         database.child('quizes/').push(quizDetailsArray);
-        if(question.value === '' || opt1.value === '' || opt2.value === '' || opt3.value === ''){}
-        location = 'ui.html'
+        location = 'ui.html';
+        
 
     }
 }
