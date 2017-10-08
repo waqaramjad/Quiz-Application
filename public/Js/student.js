@@ -76,8 +76,10 @@ function checkRecord(){
     var parent = document.getElementById('maindiv');
     parent.innerHTML="";
     var headElement=document.createElement('h3');
+    headElement.style.color = 'white'
     headElement.setAttribute('id','heading2');
     var headTxt=document.createTextNode('Your attempted quizzes record');
+
     headElement.appendChild(headTxt);
     parent.appendChild(headElement);
     parent.appendChild(tableElement);

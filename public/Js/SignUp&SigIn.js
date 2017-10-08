@@ -10,7 +10,14 @@ var password = document.getElementById('passwd')
 var LogEmail = document.getElementById('login-username')
 var logPass = document.getElementById('login-password')
 
-document.getElementById('loginform')
+function login()
+{
+    console.log('wiki')
+    if(LogEmail.value==='admin789'&&logPass.value==='quiz987')
+    {    window.location = '../Simple Admin Free Website Template - Free-CSS.com/bs-simple-admin/assets/index.html'}
+else
+    {
+    document.getElementById('loginform')
     .addEventListener("submit", function (event) {
         event.preventDefault()
         var user = {
@@ -42,7 +49,8 @@ document.getElementById('loginform')
             });
 
     })
-
+}
+}
 //  sign up form
 function submit1()
 {
