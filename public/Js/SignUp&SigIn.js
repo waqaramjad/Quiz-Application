@@ -10,8 +10,12 @@ var password = document.getElementById('passwd')
 var LogEmail = document.getElementById('login-username')
 var logPass = document.getElementById('login-password')
 
-document.getElementById('loginform')
-    .addEventListener("submit", function (event) {
+// Get points and add them in local storage
+database.child('points').once('value', function(snapshot){
+    let points = snapshot.val();
+    localStorage.setItem('points',JSON.stringify(points));
+})
+document.getElementById('loginform').addEventListener("submit", function (event) {
         event.preventDefault()
         var user = {
             email: LogEmail.value,
@@ -21,10 +25,11 @@ document.getElementById('loginform')
         firebase.auth().signInWithEmailAndPassword(user.email, user.password)
             .then(function (res) {
                 console.log(res.uid)
-                database.child('users/' + res.uid)
-                    .once('value', function (snapshot) {
+                database.child('users/' + res.uid).once('value', function (snapshot) {
                         var convert = JSON.stringify(snapshot.val())
+                        convert.password = '';
                         localStorage.setItem('loggedInUser', convert)
+                        localStorage.setItem('uid', snapshot.key)
                         location = 'Student Quiz/student.html'
                         console.log(convert)
                     })
