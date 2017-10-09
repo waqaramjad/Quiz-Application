@@ -26,8 +26,12 @@ document.getElementById('loginform').addEventListener("submit", function (event)
             .then(function (res) {
                 console.log(res.uid)
                 database.child('users/' + res.uid).once('value', function (snapshot) {
-                        var convert = JSON.stringify(snapshot.val())
-                        convert.password = '';
+                  
+                   var convert = snapshot.val();
+                    convert.password = '';
+                    convert.uid = res.uid;
+                    convert = JSON.stringify(convert);
+
                         localStorage.setItem('loggedInUser', convert)
                         localStorage.setItem('uid', snapshot.key)
                         location = 'Student Quiz/student.html'

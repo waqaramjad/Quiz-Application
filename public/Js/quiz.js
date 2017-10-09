@@ -1,3 +1,9 @@
+var table = document.getElementById('table');
+var nextBtnDiv= document.getElementById('nextBtnDiv');
+var totalPoints = 0;
+var pointsToBeAdded ;
+let answer;
+
 var coins = localStorage.getItem('coins');
 var totalCoins = document.getElementById('totalCoins');
 totalCoins.innerHTML += coins;
@@ -22,52 +28,92 @@ function setUserName (){
 
 
 //now render quiz questions
-
+var questionArray;
 var tbody = document.getElementById('tbody');
 var key = localStorage.getItem('key')
 var question = document.getElementById('question');
 firebase.database().ref('/').child('quizes/'+key).once('value',function(snapshot){
     let data = snapshot.val();
-    let questionArray = data[0].questions;
+    console.log(data);
+    questionArray = data[0].questions;
+    pointsToBeAdded = data[0].marks;
     renderQuestions(questionArray);
 })
-
 var i=0;
 var value = 1;
-function renderQuestions(questionArray){
+// Render Questions
+function renderQuestions(){
     console.log(questionArray[0]);
-    for(i=0; i<value; i++){
-        renderQuestionsInHtml(questionArray[i]);
-    }
-    // questionArray.forEach(function(element) {
-    // question.innerHTML = element.question;
-    // console.log(element.options) 
-    // element.options.forEach(function(option){
-    //  renderQuestionsInHtml(option);   
-    // })
-    // });
+    if(questionArray[i]){
+        while(i<value){
+            i++;
+            renderQuestionsInHtml(questionArray[i-1]);
+        }
+}else{
+    let uid = JSON.getItem('loggedInUser');
+    let coins = localStorage.getItem('coins')
+    uid = JSON.stringify(uid.uid);
+    nextBtnDiv.innerHTML = `<button type="button" class="btn btn-success">Finish</button>`;
+    firebase.database().ref('/').child('quizes/'+uid + '/points').set(totalCoins+coins);
+}
 }
 var optionCounter = 1;
-function renderQuestionsInHtml(questionArray){
-    question.innerHTML = questionArray.question;
-    questionArray.options.forEach(function(option){
-     renderoptionsInHtml(option);   
+function renderQuestionsInHtml(questionArr){
+    question.innerHTML = questionArr.question;
+    questionArr.options.forEach(function(option){
+     renderoptionsInHtml(option);
     })
+    table.innerHTML += ''
     optionCounter = 1;
+    let btn = '<button type="button" class="btn btn-success" id="nextBtn" onclick= buttonNextClick()>Next Question</button>'
+    nextBtnDiv.innerHTML = btn;
 }
+
+function buttonNextClick(){
+    if(answer != undefined)
+{
+    console.log(answer);
+    if(answer){
+        totalPoints += pointsToBeAdded;
+        table.innerHTML = 'Your answer is correct';
+        setInterval(function(){
+            value++;
+            renderQuestions();
+        }, 2000)
+    }
+}
+else{
+    alert('Please select one option !!')
+}
+   
+}
+
 
 function renderoptionsInHtml(option){
     let opt = 'option'+optionCounter;
-    let opti = option.opt;
-    
+    let opti =option[Object.keys(option)[Object.keys(option).length - 1]] 
         let render = `
         <tr>
-        <td>${option.correct}</td>
-        <td>${opti}</td>
+        <td><input type="radio" id="${opti}" value="${option.correct}" name="" onclick= "evalluteAnswer(${option.correct}, '${opti}')"></td>
+        <td>${opti}</td>
     </tr>
         `;
         tbody.innerHTML += render;
         optionCounter++;
+}
+var idVar;
+var firstTime= true;
+function evalluteAnswer(value, id){
+    if(firstTime){
+        idVar = id;
+        firstTime = false;
+    }
+    else{
+        document.getElementById(idVar).checked = false;
+        idVar = id;
+    }
+    
+    answer = value;
 }
 // var quizname = localStorage.getItem('startQuizName');
 
