@@ -67,7 +67,7 @@
                 
                           <a class="navbar-brand" href="javascript:void(0)"></a>
                           
-                       
+                        
                 </div>
                 <div class="navbar-collapse collapse in" id="myNavbar" aria-expanded="true" style="">
                     <ul class="nav navbar-nav navbar-right">
@@ -80,7 +80,7 @@
                             margin-top: 2%;
                         " onclick="window.location='quizzes.html'">Start Quiz</button></li> -->
                        <li><a href="javascript:void(0)" id="" style="background-color: white;color: black;/* color:white; */font-size: 18px;" onclick="window.location='quizzes.html'">Start Quiz</a></li> 
-                        <li><a href="javascript:void(0)" id="username" style="color:white" onclick="window.location='teacher.html'">Hello alo</a></li>
+                        <li><a href="javascript:void(0)" id="username" style="color:white" onclick="window.location='teacher.html'"></a></li>
                         <li><a href="javascript:void(0)" id="logout" style="color:white" onclick="window.location='index.html';localStorage.removeItem('userLogin')">Logout</a></li>
                        <li><a href="javascript:void(0)" id="totalCoins" style="color:gold">Coins:</a></li>      
                         <li><a href="javascript:void(0)" id="time" style="color:white" class="hoverNav">1:09:27</a></li>
@@ -112,17 +112,32 @@
 
     <!--Screen division starts-->
     <div class="row">
-        <div class="col-sm-9">
+        <div class="col-sm-12">
             <div id="maindiv">
                 <div id="quizdiv" style="
-                font-size: large;
-            ">
+                font-size: large;" >
+                Quiz Name:
                 </div>
+                <p id="instructions" style="color:wheat">instructions: </p>
             </div>
         </div>
-        <div class="col-sm-3">
+        <div class="col-sm-12">
             <div id="nextdiv">
-                <h4 id="timer"></h4>
+                    <table id="table" class="table table-striped table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th style="width: 20%">#</th>
+                                    <th id="question">Question</th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="tbody">
+                            </tbody>
+                           
+                        </table>
+                        <div id="nextBtnDiv">
+                            
+                    </div>               
             </div>
                 
         </div>

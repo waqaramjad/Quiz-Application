@@ -1,6 +1,9 @@
 var database = firebase.database().ref("/");
 var username = document.getElementById('username');
+var points = localStorage.getItem('points');
+points = JSON.parse(points);
 
+<<<<<<< HEAD
 <<<<<<< HEAD
 database.child('users/').on("child_added", function (snapshot) {
     var obj = snapshot.val();
@@ -89,11 +92,16 @@ function checkRecord(){
         }
     }
 =======
+=======
+var userData = localStorage.getItem('loggedInUser');
+userData = JSON.parse(userData);
+
+var totalCoins = document.getElementById('totalCoins');
+>>>>>>> ed722250d0a202ee6ae7ac78e9b6eb5c31260797
 var uid = localStorage.getItem('uid');
-uid = JSON.parse(uid);
 
 var logout = document.getElementById('logout');
-userData = JSON.parse(userData);
+
 
 getUserCoins();
 setUserName();
@@ -102,18 +110,23 @@ function setUserName (){
 }
 
 
-var userData = localStorage.getItem('loggedInUser');
-var totalCoins = document.getElementById('totalCoins');
 function getUserCoins() {
-    console.log('work');
+    let loginPoints = parseInt(points.loginPoints);
+    
+    console.log(points)
+    console.log(loginPoints.points)
     if (userData.coins) {
-     userData.coins += 2;
-     totalCoins.innerHTML += userData.coins;   
-     database.child('users/'+ uid + '/coins').update(userData.coins);
+        let coins = parseInt(userData.coins);
+        coins = coins+loginPoints;
+     totalCoins.innerHTML += coins;   
+     database.child('users/'+ uid + '/coins').set(coins);
+     
+localStorage.setItem('coins',coins);
 }
 else{
-    totalCoins.innerHTML += 2;
-    database.child('users/'+ uid + '/coins').set('2');
+    totalCoins.innerHTML += loginPoints;
+    database.child('users/'+ uid + '/coins').set(loginPoints);
+    localStorage.setItem('coins',loginPoints);
 }
 }
 
